@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Index - Ocorrências Aeronáuticas</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fa; color: #222; }
+    header { background: #003366; color: #fff; padding: 1.5rem; font-size: 1.5rem; }
+    nav { position: fixed; top: 0; left: 0; width: 250px; height: 100vh; background: #005599; color: #fff; padding: 2rem 1rem; box-sizing: border-box; }
+    nav a { display: block; color: #fff; text-decoration: none; margin: 1rem 0; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    main { margin-left: 270px; padding: 2rem; }
+    h2 { color: #003366; margin-top: 2rem; }
+    h3 { color: #005599; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: white; }
+    th, td { border: 1px solid #ccc; padding: 0.75rem; text-align: left; vertical-align: top; }
+    th { background: #e0e0e0; }
+    .tag { display: inline-block; padding: 0.3rem 0.6rem; border-radius: 6px; color: #fff; font-size: 0.85rem; }
+    .acidente { background-color: #c62828; }
+    .grave { background-color: #ef6c00; }
+    .incidente { background-color: #2e7d32; }
+    .grupo { margin-bottom: 3rem; }
+  </style>
+</head>
+<body>
+
+<header><h1 style="margin:0; font-size: 1.8rem; white-space: nowrap;">Padrões Operacionais em Ocorrências Aeronáuticas (2000–2024)</h1></header>
+
+<nav>
+  <a href="#clusters">Ocorrências Gerais</a>
+  <a href="#acidente">Acidente</a>
+  <a href="#grave">Incidente Grave</a>
+  <a href="#incidente">Incidente</a>
+</nav>
+
+<main>
+<section class="grupo" id="clusters">
+  <h2>Clusters Hierárquicos - Visão Geral</h2>
+  <h3>Ocorrências Gerais</h3>
+  <ul>
+    <li>Cluster 1: INCIDENTE - Decolagem, REGULAR, LEVE, JATO, ACIMA DE 5700 KG (538 ocorrências)</li>
+    <li>Cluster 2: INCIDENTE - Subida, REGULAR, LEVE, JATO, ACIMA DE 5700 KG (524 ocorrências)</li>
+    <li>Cluster 3: INCIDENTE - Pouso, PRIVADA, NENHUM DANO, PISTÃO, ATÉ 2250 KG (533 ocorrências)</li>
+  </ul>
+  <h3>Acidente</h3>
+  <ul>
+    <li>Cluster 1: Decolagem, PRIVADA, SUBSTANCIAL, PISTÃO, ATÉ 2250 KG (185 ocorrências)</li>
+    <li>Cluster 2: Pouso, PRIVADA, SUBSTANCIAL, PISTÃO, ENTRE 2250 E 5700 KG (139 ocorrências)</li>
+    <li>Cluster 3: Decolagem, PRIVADA, SUBSTANCIAL, PISTÃO, ATÉ 2250 KG (187 ocorrências)</li>
+    <li>Cluster 4: Cruzeiro, PRIVADA, SUBSTANCIAL, PISTÃO, ATÉ 2250 KG (172 ocorrências)</li>
+  </ul>
+  <h3>Incidente Grave</h3>
+  <ul>
+    <li>Cluster 1: Pouso, PRIVADA, LEVE, PISTÃO, ATÉ 2250 KG (113 ocorrências)</li>
+    <li>Cluster 2: Pouso, INSTRUÇÃO, LEVE, PISTÃO, ATÉ 2250 KG (105 ocorrências)</li>
+    <li>Cluster 3: Decolagem, PRIVADA, LEVE, PISTÃO, ATÉ 2250 KG (122 ocorrências)</li>
+    <li>Cluster 4: Pouso, INSTRUÇÃO, LEVE, PISTÃO, ATÉ 2250 KG (118 ocorrências)</li>
+    <li>Cluster 5: Pouso, PRIVADA, LEVE, PISTÃO, ENTRE 2250 E 5700 KG (123 ocorrências)</li>
+  </ul>
+  <h3>Incidente</h3>
+  <ul>
+    <li>Cluster 1: Decolagem, REGULAR, LEVE, JATO, ACIMA DE 5700 KG (538 ocorrências)</li>
+    <li>Cluster 2: Subida, REGULAR, LEVE, JATO, ACIMA DE 5700 KG (524 ocorrências)</li>
+    <li>Cluster 3: Pouso, PRIVADA, NENHUM DANO, PISTÃO, ATÉ 2250 KG (533 ocorrências)</li>
+    <li>Cluster 4: Pouso, INSTRUÇÃO, NENHUM DANO, PISTÃO, ATÉ 2250 KG (334 ocorrências)</li>
+    <li>Cluster 5: Pouso, PRIVADA, NENHUM DANO, TURBOÉLICE, ENTRE 2250 E 5700 KG (331 ocorrências)</li>
+    <li>Cluster 6: Pouso, PRIVADA, NENHUM DANO, PISTÃO, ENTRE 2250 E 5700 KG (367 ocorrências)</li>
+  </ul>
+</section>
+</main>
+</body>
+</html>
