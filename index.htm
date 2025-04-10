@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Index - Ocorrências Aeronáuticas</title>
+  <title>Regras de Associação - Ocorrências Aeronáuticas</title>
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fa; color: #222; }
     header { background: #003366; color: #fff; padding: 1.5rem; font-size: 1.5rem; }
@@ -26,10 +26,10 @@
 </head>
 <body>
 
-<header><h1 style="margin:0; font-size: 1.8rem; white-space: nowrap;">Padrões Operacionais em Ocorrências Aeronáuticas (2000–2024)</h1></header>
+<header><h1 style="margin:0;">Padrões Operacionais em Ocorrências Aeronáuticas (2000–2024)</h1>Regras de Associação em Ocorrências Aeronáuticas (2000–2024)</header>
 
 <nav>
-  <a href="#clusters">Ocorrências Gerais</a>
+  <a href="#gerais">Ocorrências Gerais</a>
   <a href="#acidente">Acidente</a>
   <a href="#grave">Incidente Grave</a>
   <a href="#incidente">Incidente</a>
@@ -69,6 +69,80 @@
     <li>Cluster 6: Pouso, PRIVADA, NENHUM DANO, PISTÃO, ENTRE 2250 E 5700 KG (367 ocorrências)</li>
   </ul>
 </section>
+  <section id="gerais" class="grupo">
+    <h2>Regras de Associação - Ocorrências Gerais</h2>
+    <table>
+      <thead><tr><th>Regra</th><th>Antecedente</th><th>Consequente</th><th>Interpretação</th><th>Métricas</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>aeronaves > 5700 kg, bimotor, colisão com aves</td>
+          <td><span class="tag incidente">Incidente</span>, jato, regular, leve</td>
+          <td>Aeronaves comerciais de grande porte, ao colidirem com aves, tendem a não apresentar danos significativos, mas são classificadas como incidentes.</td>
+          <td>Suporte: 2.1%<br>Confiança: 65.9%<br>Lift: 14.27<br>Conviction: 2.8<br>Jaccard: 0.37<br>Certainty: 0.61</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Falha do motor em voo, até 2250 kg</td>
+          <td><span class="tag acidente">Acidente</span>, pistão, monomotor, substancial</td>
+          <td>Acidentes com falha de motor em aeronaves leves apresentam forte associação com motores pistão, monomotores e danos substanciais.</td>
+          <td>Suporte: 4.3%<br>Confiança: 73.3%<br>Lift: 3.82<br>Conviction: 3.0<br>Jaccard: 0.21<br>Certainty: 0.54</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>> 5700kg, bimotor, falha de sistema</td>
+          <td><span class="tag incidente">Incidente</span>, jato, regular, sem dano</td>
+          <td>Aeronaves bimotor com falha de sistema mostram forte associação com operação regular, motor jato e nenhum dano.</td>
+          <td>Suporte: 4.5%<br>Confiança: 63%<br>Lift: 5.65<br>Conviction: 2.4<br>Jaccard: 0.33<br>Certainty: 0.51</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Turboélice, Táxi Aéreo</td>
+          <td>2250–5700kg, <span class="tag incidente">Incidente</span></td>
+          <td>Operações de táxi aéreo com turboélice têm forte associação com incidentes envolvendo aeronaves entre 2250 e 5700kg.</td>
+          <td>Suporte: 2.8%<br>Confiança: 73%<br>Lift: 7.26<br>Conviction: 3.38<br>Jaccard: 0.25<br>Certainty: 0.63</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- As próximas seções de Acidente, Incidente Grave e Incidente serão adicionadas depois (parte 2) -->
+
+<section id="acidente" class="grupo">
+  <h2>Regras de Associação - Acidente</h2>
+  <p><b>Regra 1:</b> Tipo de motor jato → bimotor > 5700kg<br>
+  <b>Interpretação:</b> Aeronaves com motor jato estão fortemente associadas a bimotores pesados.<br>
+  <b>Métricas:</b> Suporte: 2.1%, Confiança: 72%, Lift: 24.12, Conviction: 3.5, Jaccard: 0.56, Certainty: 0.71</p>
+
+  <p><b>Regra 2:</b> Operação agrícola + turboélice → 2250–5700kg, monomotor, dano substancial<br>
+  <b>Interpretação:</b> Acidentes agrícolas com turboélice são associados a aeronaves monomotor com danos.<br>
+  <b>Métricas:</b> Suporte: 2.3%, Confiança: 77%, Lift: 18.8, Conviction: 4.2, Jaccard: 0.49, Certainty: 0.73</p>
+
+  <p><b>Regra 3:</b> Decolagem + turboélice → 2250–5700kg, monomotor<br>
+  <b>Interpretação:</b> Acidentes na decolagem com turboélice mostram forte relação com monomotores intermediários.<br>
+  <b>Métricas:</b> Suporte: 2%, Confiança: 80%, Lift: 14.8, Conviction: 4.8, Jaccard: 0.35, Certainty: 0.75</p>
+
+  <p><b>Regra 4:</b> Pistão + voo especializada + monomotor → agrícola, substancial, <=2250kg<br>
+  <b>Regra 5:</b> Peso <=2250kg + cruzeiro → pistão, privado, monomotor</p>
+</section>
+
+<section id="grave" class="grupo">
+  <h2>Regras de Associação - Incidente Grave</h2>
+  <p><b>Regra 1:</b> 2250–5700kg + monomotor → turboélice, dano leve<br>
+  <b>Regra 2:</b> >5700kg + sem dano + bimotor → jato, regular<br>
+  <b>Regra 3:</b> Pistão + falha motor + operação privada → cruzeiro, <=2250kg<br>
+  <b>Regra 4:</b> Substancial + pistão + privado + monomotor → perda controle no solo, <=2250kg<br>
+  <b>Regra 5:</b> Contato anormal / pouso sem trem + <=2250kg → pistão, privado, pouso</p>
+</section>
+
+<section id="incidente" class="grupo">
+  <h2>Regras de Associação - Incidente</h2>
+  <p><b>Regra 1:</b> >5700kg + colisão ave + bimotor → jato, regular, dano leve<br>
+  <b>Regra 2:</b> Falha sistema + <=2250kg → pistão, monomotor, sem dano<br>
+  <b>Regra 3:</b> >5700kg + falha sistema → jato, sem dano, regular</p>
+</section>
 </main>
+</body>
+</html>
+
 </body>
 </html>
